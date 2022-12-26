@@ -83,7 +83,7 @@ namespace ArmadilloParty
             app.UseForwardedHeaders(forwardOpts);
 
    
-            app.UseHttpsRedirection();
+           //app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
