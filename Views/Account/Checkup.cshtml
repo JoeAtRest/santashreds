@@ -1,0 +1,46 @@
+﻿<div class="row">
+    <div class="col-md-12">
+
+        <h3>Claims associated with @Model.HunterName</h3>
+        <p>This page displays all the claims associated the the current User. This is useful when debugging to see which claims are being populated from the Auth0 ID Token.</p>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>
+                    Location
+                </th>
+                <th>
+                    Code
+                </th>
+                <th>
+                    Trick Complete
+                </th>
+                <th>
+                    Code Entered Date
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+                @if( @Model.GetLocation("BIK") != null )
+                {                 
+                    <tr>
+                        <td>@Model.GetLocation("BIK").Name</td>
+                    <td>@Model.GetLocation("BIK").Code</td>
+                    <td>@Model.GetLocation("BIK").TrickComplete</td>
+                    <td>@Model.GetLocation("BIK").CodeEnteredDate</td>
+                    </tr>
+                }   
+                else
+                {                   
+                    <tr>
+                    <td>BIK</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

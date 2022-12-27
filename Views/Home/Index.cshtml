@@ -10,8 +10,8 @@
                     <div class="image-info">
                         <h2 class="mb-3">hoping.gent.class</h2>
                         <h2 class="mb-3">KINGS HEATH</h2>
-                        <a href="single.html" class="btn btn-outline-white py-2 px-4">Video</a>
-                    </div>
+                        <a asp-controller="Video" asp-action="Video1" class="btn btn-outline-white py-2 px-4">Video</a> 
+                    </div>                   
                     <img src="images/1-screenshot-colour-v1-lrg.jpg" alt="Image" class="img-fluid">
                 </div>
 
@@ -21,7 +21,7 @@
                     <div class="image-info">
                         <h2 class="mb-3">lives.knee.occupiers</h2>
                         <h2 class="mb-3">STOKE LOCK</h2>
-                        <a href="single.html" class="btn btn-outline-white py-2 px-4">Video</a>
+                        <a asp-controller="Video" asp-action="Video2" class="btn btn-outline-white py-2 px-4">Video</a>                       
                     </div>
                     <img src="images/2-screenshot-colour-v1-lrg.jpg" alt="Image" class="img-fluid">
                 </div>
@@ -31,7 +31,7 @@
                     <div class="image-info">
                         <h2 class="mb-3">juggled.club.deputy</h2>
                         <h2 class="mb-3">FOUNTAINWELL</h2>
-                        <a href="single.html" class="btn btn-outline-white py-2 px-4">Video</a>
+                        <a asp-controller="Video" asp-action="Video3" class="btn btn-outline-white py-2 px-4">Video</a>
                     </div>
                     <img src="images/3-screenshot-colour-v1-lrg.jpg" alt="Image" class="img-fluid">
                 </div>
@@ -42,29 +42,44 @@
                     <div class="image-info">
                         <h2 class="mb-3">harder.await.cards</h2>
                         <h2 class="mb-3">BENNERLEY VIADUCT</h2>
-                        <a href="single.html" class="btn btn-outline-white py-2 px-4">Video</a>
+                        <a asp-controller="Video" asp-action="Video4" class="btn btn-outline-white py-2 px-4">Video</a>
                     </div>
                     <img src="images/4-screenshot-colour-v1-lrg.jpg" alt="Image" class="img-fluid">
                 </div>
             </div>
 
+        @if (@Model)
+        {
             <div class="col-lg-4">
                 <div class="image-wrap-2">
                     <div class="image-info">
                         <h2 class="mb-3">rungs.notion.comply</h2>
                         <h2 class="mb-3">NETHER BRETTON</h2>
-                        <a href="single.html" class="btn btn-outline-white py-2 px-4">Video</a>
+                        <a asp-controller="Video" asp-action="Video5" class="btn btn-outline-white py-2 px-4">Video</a>
                     </div>
                     <img src="images/5-screenshot-colour-v1-lrg.jpg" alt="Image" class="img-fluid">
                 </div>
             </div>
-
+        }
+        else
+        {
+             <div class="col-lg-4">
+                <div class="image-wrap-2">
+                    <div class="image-info">
+                        <h2 class="mb-3">rungs.notion.comply</h2>
+                        <h2 class="mb-3">NETHER BRETTON</h2>
+                        <p class="btn btn-outline-white py-2 px-4">Locked</p>
+                    </div>
+                    <img src="images/5-screenshot-colour-v1-lrg.jpg" alt="Image" class="img-fluid">
+                </div>
+            </div>
+        }
             <div class="col-lg-4">
                 <div class="image-wrap-2">
                     <div class="image-info">
                         <h2 class="mb-3">multiple locations</h2>
                         <h2 class="mb-3">HAMPSHIRE</h2>
-                        <a href="single.html" class="btn btn-outline-white py-2 px-4">Video</a>
+                        <a asp-controller="Video" asp-action="Video6" class="btn btn-outline-white py-2 px-4">Video</a>
                     </div>
                     <img src="images/6-screenshot-colour-v1-lrg.jpg" alt="Image" class="img-fluid">
                 </div>

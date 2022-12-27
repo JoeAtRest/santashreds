@@ -1,0 +1,52 @@
+﻿<div class="site-section" data-aos="fade">
+    <div class="container-fluid">      
+        <div class="container">
+            <div class="row flex-xxl-column">
+            <div class="col col-lg-3">
+                <h2>The Video</h2>
+            </div>
+            <div class="col col-lg-9">
+               <video controls width="auto" height="auto">
+                    <source src="~/media/6-hampshire.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            </div>
+            <div class="row flex-xxl-column">
+            <div class="col col-lg-3">
+                <h2>The Route</h2>
+            </div>
+            <div class="col col-lg-9">
+                <p>Nova & Joseph will be your guides.</p>
+            </div>           
+        </div>
+         @if (@Model.Completed == "false")
+            {
+                <div class="row flex-xxl-column">
+                    <div class="col col-lg-3">
+                        <h2>Code</h2>
+                    </div>
+
+                    <div class="col col-lg-9">
+                        @using (Html.BeginForm("Answer", "Answer"))
+                        {
+                            <div class="row form-group">
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <label class="text-white" for="fname">Enter the three letter code for this challenge</label>
+                                    @Html.TextBox("txtClue")
+
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <input type="submit" value="Register Clue" class="btn btn-primary py-2 px-4 text-white">
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                </div>
+            }
+            </div>
+    </div>
+</div>

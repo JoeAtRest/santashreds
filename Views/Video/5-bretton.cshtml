@@ -1,0 +1,60 @@
+﻿<div class="site-section" data-aos="fade">
+    <div class="container-fluid">      
+        <div class="container">
+            <div class="row flex-xxl-column">
+            <div class="col col-lg-3">
+                <h2>The Video</h2>
+            </div>
+            <div class="col col-lg-9">
+               <video controls width="auto" height="auto">
+                    <source src="~/media/5-bretton-web.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            </div>
+            <div class="row flex-xxl-column">
+            <div class="col col-lg-3">
+                <h2>The Short Way</h2>
+            </div>
+            <div class="col col-lg-9">
+                <iframe src="https://www.komoot.com/tour/999180148/embed?share_token=aJTmJIbgxTiLtc83LH6ULt22xfntBhUniuzjmsw1q2uJ1NbbFJ&profile=1" width="640" height="700" frameborder="0" scrolling="no"></iframe>
+            </div>
+            </div>
+            <div class="row flex-xxl-column">
+            <div class="col col-lg-3">
+                <h2>The Long Way</h2>
+            </div>
+            <div class="col col-lg-9">
+                <iframe src="https://www.komoot.com/tour/995420456/embed?share_token=asvQa5IIQ9DE3fAUuhfRlLmoMewPfaRBQzpOnQyvhA6MAMQAWx&profile=1" width="640" height="700" frameborder="0" scrolling="no"></iframe>
+            </div>
+            </div>
+             @if (@Model.Completed == "false")
+            {
+                <div class="row flex-xxl-column">
+                    <div class="col col-lg-3">
+                        <h2>Code</h2>
+                    </div>
+
+                    <div class="col col-lg-9">
+                        @using (Html.BeginForm("Answer", "Answer"))
+                        {
+                            <div class="row form-group">
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <label class="text-white" for="fname">Enter the three letter code for this challenge</label>
+                                    @Html.TextBox("txtClue")
+
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col-md-12">
+                                    <input type="submit" value="Register Clue" class="btn btn-primary py-2 px-4 text-white">
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>

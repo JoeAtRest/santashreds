@@ -8,6 +8,7 @@ using System.Linq;
 using System.Security.Claims;
 using Auth0.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using SantaShreds.Support;
 
 namespace ArmadilloParty.Controllers
 {
@@ -53,7 +54,7 @@ namespace ArmadilloParty.Controllers
         /// application to see the in claims populated from the Auth0 ID Token
         /// </summary>
         /// <returns></returns>
-        [Authorize(Roles = "puzzlesolver")]
+       // [Authorize(Roles = "victim")]
         public IActionResult Claims()
         {
             return View();
@@ -62,6 +63,13 @@ namespace ArmadilloParty.Controllers
         public IActionResult AccessDenied()
         {
             return View();
+        }
+
+        public IActionResult Checkup()
+        {
+            var scorecard = new ScoreCard();
+            scorecard.Load(User.Identity.Name);            
+            return View(scorecard.card);
         }
     }
 }

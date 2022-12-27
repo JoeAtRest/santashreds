@@ -1,18 +1,15 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using ArmadilloParty.Support;
+using Auth0.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using ArmadilloParty.Support;
-using Auth0.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.HttpOverrides;
 
 namespace ArmadilloParty
 {
