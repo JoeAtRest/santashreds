@@ -64,7 +64,13 @@ namespace ArmadilloParty.Controllers
             {
                 IsCompleted = scorecard.QueryLocation("FIN")
             };
-            return View("5-bretton",c);
+
+            if (scorecard.card.FinalLocationUnlocked.HasValue && scorecard.card.FinalLocationUnlocked.Value)
+            {
+                return View("5-bretton", c);
+            }
+
+            return View("1-kingsheath", c);
         }
 
         public IActionResult Video6()
