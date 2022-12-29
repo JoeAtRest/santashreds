@@ -83,5 +83,16 @@ namespace ArmadilloParty.Controllers
             };
             return View("6-hampshire",c);
         }
+
+        public IActionResult Video7()
+        {
+            var scorecard = new ScoreCard();
+            scorecard.Load(User.Identity.Name);
+            var c = new Completion()
+            {
+                IsCompleted = scorecard.QueryLocation("LNJ")
+            };
+            return View("7-rules", c);
+        }
     }
 }
