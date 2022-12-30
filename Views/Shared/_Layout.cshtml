@@ -33,6 +33,11 @@
                     <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
                         <li class="active"><a asp-controller="Home" asp-action="Index">Home</a></li>
                         <li class="active"><a asp-controller="Rules" asp-action="Rules">Rules</a></li>
+                        <li class="active"><a asp-controller="Account" asp-action="Logout">Logout</a></li>
+                         @if (User.IsInRole("shredadmin"))
+                        {
+                            <li class="active"><a asp-controller="Account" asp-action="Checkup">Progress check</a></li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -46,7 +51,12 @@
 
                             <ul class="site-menu js-clone-nav mx-auto d-none d-lg-block">
                                 <li class="active"><a asp-controller="Home" asp-action="Index">Home</a></li>
-                                <li class="active"><a asp-controller="Rules" asp-action="Rules">Rules</a></li>
+                        <li class="active"><a asp-controller="Rules" asp-action="Rules">Rules</a></li>
+                        <li class="active"><a asp-controller="Account" asp-action="Logout">Logout</a></li>
+                         @if (User.IsInRole("shredadmin"))
+                        {
+                            <li class="active"><a asp-controller="Account" asp-action="Checkup">Progress check</a></li>
+                        }
                             </ul>
                         </nav>
                     </div>

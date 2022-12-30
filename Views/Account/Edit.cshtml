@@ -1,8 +1,8 @@
 ﻿<div class="row">
     <div class="col-md-12">
 
-        <h3>Scorecard for @Model.HunterName</h3>
-        <p>Hpw is the victim progressing ?</p>
+        <h3>Claims associated with @Model.HunterName</h3>
+        <p>This page displays all the claims associated the the current User. This is useful when debugging to see which claims are being populated from the Auth0 ID Token.</p>
 
         <table class="table">
             <thead>
@@ -19,9 +19,6 @@
                 <th>
                     Code Entered Date
                 </th>
-                <th>
-                    Action
-                </th>
             </tr>
             </thead>
             <tbody>
@@ -32,7 +29,7 @@
                     <td>@Model.GetLocation("BIK").Code</td>
                     <td>@Model.GetLocation("BIK").TrickComplete</td>
                     <td>@Model.GetLocation("BIK").CodeEnteredDate</td>
-                    <td>@Html.ActionLink("Verify trick", "Edit", new { id="BIK" })</td>
+                    <td>Edit</td>
                     </tr>
                 }   
                 else
@@ -41,8 +38,7 @@
                     <td>BIK</td>
                     <td></td>
                     <td></td>
-                    <td></td>
-                     <td>@Html.ActionLink("Verify trick", "Edit", new { id="BIK" })</td>
+                    <td>Edit</td>
                     </tr>
                 }                  
                 @if( @Model.GetLocation("COH") != null )
@@ -52,17 +48,16 @@
                     <td>@Model.GetLocation("COH").Code</td>
                     <td>@Model.GetLocation("COH").TrickComplete</td>
                     <td>@Model.GetLocation("COH").CodeEnteredDate</td>
-                     <td>@Html.ActionLink("Verify trick", "Edit",  new { id="COH" })</td>
+                    <td>Edit</td>
                     </tr>
                 }   
                 else
                 {                   
                     <tr>
                     <td>COH</td>
-                     <td></td>
                     <td></td>
                     <td></td>
-                     <td>@Html.ActionLink("Verify trick", "Edit",  new { id="COH" })</td>
+                    <td>Edit</td>
                     </tr>
                 }  
                 @if( @Model.GetLocation("TWO") != null )
@@ -72,17 +67,16 @@
                     <td>@Model.GetLocation("TWO").Code</td>
                     <td>@Model.GetLocation("TWO").TrickComplete</td>
                     <td>@Model.GetLocation("TWO").CodeEnteredDate</td>
-                     <td>@Html.ActionLink("Verify trick", "Edit",  new { id="TWO" })</td>
+                    <td>Edit</td>
                     </tr>
                 }   
                 else
                 {                   
                     <tr>
                     <td>TWO</td>
-                     <td></td>
                     <td></td>
                     <td></td>
-                     <td>@Html.ActionLink("Verify trick", "Edit",  new { id="TWO" })</td>
+                    <td>Edit</td>
                     </tr>
                 }  
                 @if( @Model.GetLocation("BAK") != null )
@@ -92,7 +86,7 @@
                     <td>@Model.GetLocation("BAK").Code</td>
                     <td>@Model.GetLocation("BAK").TrickComplete</td>
                     <td>@Model.GetLocation("BAK").CodeEnteredDate</td>
-                     <td>@Html.ActionLink("Verify trick", "Edit",  new { id="BAK" })</td>
+                    <td>Edit</td>
                     </tr>
                 }   
                 else
@@ -101,28 +95,7 @@
                     <td>BAK</td>
                     <td></td>
                     <td></td>
-                    <td></td>
-                     <td>@Html.ActionLink("Verify trick", "Edit",  new { id="BAK" })</td>
-                    </tr>
-                }
-                @if( @Model.GetLocation("LNJ") != null )
-                {                 
-                    <tr>
-                    <td>@Model.GetLocation("LNJ").Name</td>
-                    <td>@Model.GetLocation("LNJ").Code</td>
-                    <td>@Model.GetLocation("LNJ").TrickComplete</td>
-                    <td>@Model.GetLocation("LNJ").CodeEnteredDate</td>
-                     <td>@Html.ActionLink("Verify trick", "Edit",  new { id="LNJ" })</td>
-                    </tr>
-                }   
-                else
-                {                   
-                    <tr>
-                    <td>LNJ</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                     <td>@Html.ActionLink("Verify trick", "Edit",  new { id="LNJ" })</td>
+                    <td>Edit</td>
                     </tr>
                 }
                 @if( @Model.GetLocation("FIN") != null )
@@ -132,7 +105,7 @@
                     <td>@Model.GetLocation("FIN").Code</td>
                     <td>@Model.GetLocation("FIN").TrickComplete</td>
                     <td>@Model.GetLocation("FIN").CodeEnteredDate</td>
-                     <td>@Html.ActionLink("Verify trick", "Edit",  new { id="FIN" })</td>
+                    <td>Edit</td>
                     </tr>
                 }   
                 else
@@ -141,8 +114,7 @@
                     <td>FIN</td>
                     <td></td>
                     <td></td>
-                    <td></td>
-                     <td>@Html.ActionLink("Verify trick", "Edit",  new { id="FIN" })</td>
+                    <td>Edit</td>
                     </tr>
                 }
             </tbody>

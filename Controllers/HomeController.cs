@@ -10,11 +10,8 @@ namespace ArmadilloParty.Controllers
         public IActionResult Index()
         {
             var scorecard = new ScoreCard();
-            scorecard.Load(User.Identity.Name);
-            var progress = scorecard.card.FinalLocationUnlocked;
-
-            if (progress == null)
-                progress = false;
+            scorecard.Load("player1@santas-fiendish-secret.co.uk");
+            var progress = scorecard.CheckProgress();            
 
             return View("Index", progress);
         }
@@ -23,7 +20,7 @@ namespace ArmadilloParty.Controllers
         public IActionResult Completion()
         {
             var scorecard = new ScoreCard();
-            scorecard.Load(User.Identity.Name);
+            scorecard.Load("player1@santas-fiendish-secret.co.uk");
             var progress = scorecard.QueryProgress();
             return PartialView("Completion",new { Clues = progress.Item1, Tricks = progress.Item2 });
         }

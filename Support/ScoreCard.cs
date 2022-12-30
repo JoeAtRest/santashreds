@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using SantaShreds.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -45,6 +46,9 @@ namespace SantaShreds.Support
 
         public void Update()
         {
+            if (IsAllComplete())
+                this.card.FinalLocationUnlocked = true;
+
             // serialize JSON directly to a file
             using (StreamWriter file = File.CreateText($"{card.HunterName}"))
             {
@@ -68,17 +72,49 @@ namespace SantaShreds.Support
             
             return false;
         }
-        
+
+        public bool QueryLocationAndTrick(string location)
+        {
+            if (IsLoaded)
+            {
+                if (card.Locations != null && card.Locations.Count(j => j.Name == location) > 0)
+                {
+                    var thisCard = card.Locations.Single(j => j.Name == location);
+
+                    if (thisCard.Code == thisCard.Name)
+                    {
+                        if (thisCard.TrickComplete.HasValue && thisCard.TrickComplete.Value)
+                            return true;
+                    }
+                        return false;
+                }
+            }
+
+            return false;
+        }
+
         private bool IsAllComplete()
         {
             var progress = QueryProgress();
 
-            if (progress.Item1 ==5  && progress.Item2 == 5)
+            if (progress.Item1 >=5  && progress.Item2 >= 5)
                 return true;
 
             return false;
 
         }
+
+        private bool IsFinalComplete()
+        {
+            var progress = QueryProgress();
+
+            if (progress.Item1 == 6 && progress.Item2 == 6)
+                return true;
+
+            return false;
+
+        }
+
         public (int,int) QueryProgress()
         {
             var cluesFound = 0;
@@ -101,6 +137,24 @@ namespace SantaShreds.Support
             }
 
             return (cluesFound, tricksCompleted);
+        }
+
+        public Progress CheckProgress()
+        {
+            Progress progress = new Progress()
+            {
+                FinalUnlocked = IsAllComplete(),
+                BonusUnlocked = IsFinalComplete(),
+                OneCompleted = QueryLocationAndTrick("BIK"),
+                TwoCompleted = QueryLocationAndTrick("COH"),
+                ThreeCompleted = QueryLocationAndTrick("TWO"),
+                FourCompleted = QueryLocationAndTrick("BAK"),
+                FiveCompleted = QueryLocationAndTrick("LNJ"),
+                SixCompleted = QueryLocationAndTrick("FIN"),
+            };
+
+            return progress;
+
         }
 
         public string CompleteLocation(string location)

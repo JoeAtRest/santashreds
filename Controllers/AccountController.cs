@@ -9,6 +9,7 @@ using System.Security.Claims;
 using Auth0.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using SantaShreds.Support;
+using SantaShreds.Models;
 
 namespace ArmadilloParty.Controllers
 {
@@ -54,22 +55,42 @@ namespace ArmadilloParty.Controllers
         /// application to see the in claims populated from the Auth0 ID Token
         /// </summary>
         /// <returns></returns>
-       // [Authorize(Roles = "victim")]
+        [Authorize(Roles = "shredadmin")]
         public IActionResult Claims()
         {
             return View();
         }
-
+        
         public IActionResult AccessDenied()
         {
             return View();
         }
 
+        [Authorize(Roles = "shredadmin")]
         public IActionResult Checkup()
         {
             var scorecard = new ScoreCard();
-            scorecard.Load(User.Identity.Name);            
+            scorecard.Load("player1@santas-fiendish-secret.co.uk");            
             return View(scorecard.card);
+        }
+
+        [Authorize(Roles = "shredadmin")]
+        public IActionResult Edit(string id)
+        {
+            var scorecard = new ScoreCard();
+            scorecard.Load("player1@santas-fiendish-secret.co.uk");
+            var loc = scorecard.card.GetLocation(id);
+            return View("View",loc);
+        }
+
+        [Authorize(Roles = "shredadmin")]
+        public IActionResult View(Location loc)
+        {
+            var scorecard = new ScoreCard();
+            scorecard.Load("player1@santas-fiendish-secret.co.uk");
+            scorecard.card.UpdateLocation(loc);
+            scorecard.Update();
+            return View("Checkup",scorecard.card);
         }
     }
 }
